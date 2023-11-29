@@ -9,34 +9,45 @@ namespace Calculator
     internal class Calculator
     {
 
-        public double add( )
+        public double Add( double a, double b )
         {
-            return 0;
+            return a + b;
         }
 
-        public double subtract() 
+        public double Subtract( double a, double b) 
         { 
-            return 0;
+            return a-b;
         }
         
-        public double multiply()
+        public double Multiply( double a, double b )
         {
-            return 0;
+            return a*b;
         }
 
-        public double divide()
+        public double Divide( double a, double b )
         {
-            return 0;
+            if ( b == 0 ) 
+            {
+                throw new ArgumentException("Division by zero is not allowed.");
+            }
+            return a/b;
         }
 
-        public double exponation() 
+        public double Exponentiation( double a, double b ) 
         {
-            return 0;
+            return Math.Pow(a,b);
         }
 
-        public double factorial() 
-        { 
-            return 0;
+        public double Factorial( ulong a ) 
+        {
+            ulong result = 1;
+
+            for (ulong i = 1; i <= a; i++)
+            {
+                result *= i;
+            }
+
+            return result;
         }
     }
 }

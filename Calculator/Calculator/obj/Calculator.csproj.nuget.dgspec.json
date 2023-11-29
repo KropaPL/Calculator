@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\natal\\OneDrive\\Pulpit\\volvo\\Calculator\\Calculator\\Calculator.csproj": {}
+    "C:\\Users\\natal\\OneDrive\\Pulpit\\homework\\Calculator\\Calculator\\Calculator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\natal\\OneDrive\\Pulpit\\volvo\\Calculator\\Calculator\\Calculator.csproj": {
+    "C:\\Users\\natal\\OneDrive\\Pulpit\\homework\\Calculator\\Calculator\\Calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\natal\\OneDrive\\Pulpit\\volvo\\Calculator\\Calculator\\Calculator.csproj",
+        "projectUniqueName": "C:\\Users\\natal\\OneDrive\\Pulpit\\homework\\Calculator\\Calculator\\Calculator.csproj",
         "projectName": "Calculator",
-        "projectPath": "C:\\Users\\natal\\OneDrive\\Pulpit\\volvo\\Calculator\\Calculator\\Calculator.csproj",
+        "projectPath": "C:\\Users\\natal\\OneDrive\\Pulpit\\homework\\Calculator\\Calculator\\Calculator.csproj",
         "packagesPath": "C:\\Users\\natal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\natal\\OneDrive\\Pulpit\\volvo\\Calculator\\Calculator\\obj\\",
+        "outputPath": "C:\\Users\\natal\\OneDrive\\Pulpit\\homework\\Calculator\\Calculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\natal\\AppData\\Roaming\\NuGet\\NuGet.Config",
