@@ -8,6 +8,7 @@
             var calculatormenu = new CalculatorsMenu();
 
             calculatormenu.MenuForAdd(calculator);
+            calculatormenu.MenuForFactorial(calculator);
 
         }
     }

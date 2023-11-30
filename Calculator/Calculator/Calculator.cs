@@ -38,7 +38,7 @@ namespace Calculator
             return Math.Pow(a,b);
         }
 
-        public double Factorial( ulong a ) 
+        public ulong Factorial( ulong a ) 
         {
             ulong result = 1;
 

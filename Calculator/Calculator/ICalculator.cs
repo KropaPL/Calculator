@@ -13,7 +13,7 @@ namespace Calculator
         double Multiply (double x, double y);
         double Divide (double x, double y);
         double Exponentiation(double x, double y);
-        public double Factorial(ulong a);
+        public ulong Factorial(ulong x);
 
     }
 }
