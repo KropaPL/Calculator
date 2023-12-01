@@ -9,6 +9,7 @@
             try
             {
                 calculatormenu.MainMenu(calculator);
+                Console.WriteLine(CalculatorsMenu.exitNumber);
             }
             catch (Exception ex) 
             {

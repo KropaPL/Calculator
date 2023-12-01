@@ -10,7 +10,7 @@ namespace Calculator
     internal class CalculatorsMenu
     {
         private static int enterNumberCounter = 1;
-        private static int exitNumber = 7;
+        public static int exitNumber = 0;
         public void MainMenu(ICalculator calculator) 
         {
             for (int i = 0; i < calculator.ListOfMethods.Count; i++)
@@ -18,6 +18,7 @@ namespace Calculator
                 Console.WriteLine($"{i+1} - {calculator.ListOfMethods[i]}");
             }
             Console.WriteLine($"{calculator.ListOfMethods.Count + 1} - Exit");
+            exitNumber = calculator.ListOfMethods.Count + 1;
         }
 
         public void MenuForAdd(ICalculator calculator)
