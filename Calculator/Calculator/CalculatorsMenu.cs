@@ -11,17 +11,13 @@ namespace Calculator
     {
         private static int enterNumberCounter = 1;
         private static int exitNumber = 7;
-        public void MainMenu()
+        public void MainMenu(ICalculator calculator) 
         {
-            Console.WriteLine("Menu");
-            Console.WriteLine("1 - add");
-            Console.WriteLine("2 - subtract");
-            Console.WriteLine("3 - multiply");
-            Console.WriteLine("4 - divide");
-            Console.WriteLine("5 - Exponentiation");
-            Console.WriteLine("6 - Factorial");
-            Console.WriteLine("7 - Exit");
-            Console.WriteLine("Choose number to do action: ");
+            for (int i = 0; i < calculator.ListOfMethods.Count; i++)
+            {
+                Console.WriteLine($"{i+1} - {calculator.ListOfMethods[i]}");
+            }
+            Console.WriteLine($"{calculator.ListOfMethods.Count + 1} - Exit");
         }
 
         public void MenuForAdd(ICalculator calculator)
@@ -51,7 +47,7 @@ namespace Calculator
         public void MenuForFactorial(ICalculator calculator)
         {
             bool isFactorial = true;
-            Console.WriteLine($"Result: {calculator.Factorial((ulong)EnterNumberForCalculation(isFactorial))}");
+            Console.WriteLine($"Result: {calculator.Factorial((long)EnterNumberForCalculation(isFactorial))}");
         }
 
         private double EnterNumberForCalculation(bool isFactorial = false)
@@ -68,10 +64,20 @@ namespace Calculator
             else
             {
                 Console.WriteLine($"Enter a number: ");
-                ulong number = (ulong)Convert.ToUInt64(Console.ReadLine());
+                long number = (long)Convert.ToInt32(Console.ReadLine());
                 return number;
             }
 
+        }
+        private int EnterChoiceNumber()
+        {
+            int x = Convert.ToInt32(Console.ReadLine());
+            if (x <= 0)
+            {
+                Console.WriteLine("Entered wrong number");
+                return 0;
+            }
+            return x;
         }
        
     }

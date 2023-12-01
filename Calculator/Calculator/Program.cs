@@ -6,9 +6,15 @@
         {
             var calculator = new Calculator();
             var calculatormenu = new CalculatorsMenu();
+            try
+            {
+                calculatormenu.MainMenu(calculator);
+            }
+            catch (Exception ex) 
+            {
+            Console.WriteLine(ex.Message);
+            }
 
-            calculatormenu.MenuForAdd(calculator);
-            calculatormenu.MenuForFactorial(calculator);
 
         }
     }

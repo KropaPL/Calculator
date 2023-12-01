@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +9,33 @@ namespace Calculator
 {
     internal class Calculator : ICalculator
     {
+        public List<string> ListOfMethods { get; set; }
+
+        public Calculator()
+        {
+            ListOfMethods = new List<string>
+        {
+            "Add",
+            "Subtract",
+            "Multiply",
+            "Divide",
+            "Exponentiation",
+            "Factorial"
+        };
+        }
 
         public double Add( double a, double b )
         {
             return a + b;
         }
 
+
         public double Subtract( double a, double b) 
         { 
             return a-b;
         }
-        
+
+
         public double Multiply( double a, double b )
         {
             return a*b;
@@ -35,14 +52,20 @@ namespace Calculator
 
         public double Exponentiation( double a, double b ) 
         {
+
             return Math.Pow(a,b);
         }
 
-        public ulong Factorial( ulong a ) 
+        public long Factorial( long a ) 
         {
-            ulong result = 1;
+            if (a < 0)
+            {
+                throw new Exception("Entered a negative number");
+            }
 
-            for (ulong i = 1; i <= a; i++)
+            long result = 1;
+
+            for (long i = 1; i <= a; i++)
             {
                 result *= i;
             }
