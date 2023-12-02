@@ -8,8 +8,7 @@
             var calculatormenu = new CalculatorsMenu();
             try
             {
-                calculatormenu.MainMenu(calculator);
-                Console.WriteLine(CalculatorsMenu.exitNumber);
+                calculatormenu.ChoosingOperation(calculator);
             }
             catch (Exception ex) 
             {
