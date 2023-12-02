@@ -9,6 +9,7 @@ namespace Calculator
     internal interface ICalculator
     {
         List<String> ListOfMethods { get; set; }
+        int exit { get; set; }
         double Add (double x, double y);
         double Subtract (double x, double y);
         double Multiply (double x, double y);

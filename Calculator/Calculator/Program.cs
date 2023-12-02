@@ -4,17 +4,11 @@
     {
         static void Main(string[] args)
         {
-            var calculator = new Calculator();
+            var calculator = new BaseCalculator();
             var calculatormenu = new CalculatorsMenu();
-            try
-            {
-                calculatormenu.ChoosingOperation(calculator);
-            }
-            catch (Exception ex) 
-            {
-            Console.WriteLine(ex.Message);
-            }
+            var calculatorApp = new CalculatorApp();
 
+            calculatorApp.StartCalculator(calculator, calculatormenu);
 
         }
     }

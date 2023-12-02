@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    internal class Calculator : ICalculator
+    internal class BaseCalculator : ICalculator
     {
         public List<string> ListOfMethods { get; set; }
+        public int exit { get; set; }
 
-        public Calculator()
+        public BaseCalculator()
         {
             ListOfMethods = new List<string>
         {
@@ -45,7 +46,8 @@ namespace Calculator
         {
             if ( b == 0 ) 
             {
-                throw new ArgumentException("Division by zero is not allowed.");
+                Console.WriteLine("Division by zero is not allowed.");
+                return 0;
             }
             return a/b;
         }
@@ -60,7 +62,8 @@ namespace Calculator
         {
             if (a < 0)
             {
-                throw new Exception("Entered a negative number");
+                Console.WriteLine("Entered a negative number");
+                return 0;
             }
 
             long result = 1;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    internal class CalculatorsMenu
+    internal  class CalculatorsMenu
     {
         private static int enterNumberCounter = 1;
         public static int exitNumber = 0;
@@ -48,9 +48,9 @@ namespace Calculator
                     ShowingMenuForFactorial(calculator);
                 }
             }
-            if (choice == exitNumber)
+            if (choice == exitNumber - 1)
             {
-                Environment.Exit(0);
+                calculator.exit = CalculatorsMenu.exitNumber;
             }
         }
 
