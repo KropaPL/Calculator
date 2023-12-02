@@ -70,37 +70,49 @@ namespace Calculator
         public void ShowingMenuForAdd(ICalculator calculator)
         {
             Console.WriteLine("Addition");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Add(EnterNumberForCalculation(),EnterNumberForCalculation())}");
+            UnsetColor();
         }
 
         public void ShowingMenuForSubtract(ICalculator calculator)
         {
             Console.WriteLine("Subtraction");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Subtract(EnterNumberForCalculation(), EnterNumberForCalculation())}");
+            UnsetColor();
         }
 
         public void ShowingMenuForDivision(ICalculator calculator)
         {
             Console.WriteLine("Division");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Divide(EnterNumberForCalculation(), EnterNumberForCalculation())}");
+            UnsetColor();
         }
 
         public void ShowingMenuForMultiplying(ICalculator calculator)
         {
             Console.WriteLine("Multiplying");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Multiply(EnterNumberForCalculation(), EnterNumberForCalculation())}");
+            UnsetColor();
         }
 
         public void ShowingMenuForExponentiation(ICalculator calculator)
         {
             Console.WriteLine("Exponentiation");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Exponentiation(EnterNumberForCalculation(), EnterNumberForCalculation())}");
+            UnsetColor();
         }
         public void ShowingMenuForFactorial(ICalculator calculator)
         {
             bool isFactorial = true;
             Console.WriteLine("Factorial");
+            SetColor();
             Console.WriteLine($"Result: {calculator.Factorial((long)EnterNumberForCalculation(isFactorial))}");
+            UnsetColor();
         }
 
         private double EnterNumberForCalculation(bool isFactorial = false)
@@ -132,6 +144,15 @@ namespace Calculator
                 return 0;
             }
             return x;
+        }
+
+        private void SetColor()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        private void UnsetColor()
+        {
+            Console.ForegroundColor= ConsoleColor.White;
         }
        
     }
