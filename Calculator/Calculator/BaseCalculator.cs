@@ -68,6 +68,12 @@ namespace Calculator
                 Console.WriteLine("Entered a negative number");
                 UnsetColor();
                 return 0;
+            } else if (a > 20)
+            {
+                SetColorRed();
+                Console.WriteLine("Entered too large number");
+                UnsetColor();
+                return 0;
             }
 
             long result = 1;
