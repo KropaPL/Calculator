@@ -14,7 +14,7 @@ namespace Calculator
             {
                 for (;;)
                 {
-                    calculatorsMenu.ChoosingOperation(calculator);
+                    calculatorsMenu.MainMenu(calculator);
                     if (calculator.exit == CalculatorsMenu.exitNumber)
                     {
                         break;

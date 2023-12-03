@@ -12,14 +12,14 @@ namespace Calculator
         private static int enterNumberCounter = 1;
         public static int exitNumber = 0;
 
-        public void ChoosingOperation(ICalculator calculator)
+        public void MainMenu(ICalculator calculator)
         {
-            ShowingMainMenu(calculator);
+            GeneratingMainMenu(calculator);
             int optionNumber = EnterChoiceNumber(calculator) - 1;
             CheckingFunctionFromList(optionNumber,calculator);
         }
 
-        public void CheckingFunctionFromList(int choice, ICalculator calculator)
+        private void CheckingFunctionFromList(int choice, ICalculator calculator)
         {
             if (choice >= 0 && choice < calculator.ListOfMethods.Count)
             {
@@ -56,7 +56,7 @@ namespace Calculator
 
 
 
-        public void ShowingMainMenu(ICalculator calculator) 
+        public void GeneratingMainMenu(ICalculator calculator) 
         {
             Console.WriteLine("Calculator's Menu");
             for (int i = 0; i < calculator.ListOfMethods.Count; i++)
@@ -67,50 +67,50 @@ namespace Calculator
             exitNumber = calculator.ListOfMethods.Count + 1;
         }
 
-        public void ShowingMenuForAdd(ICalculator calculator)
+        private void ShowingMenuForAdd(ICalculator calculator)
         {
             Console.WriteLine("Addition");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Add(EnterNumberForCalculation(),EnterNumberForCalculation())}");
             UnsetColor();
         }
 
-        public void ShowingMenuForSubtract(ICalculator calculator)
+        private void ShowingMenuForSubtract(ICalculator calculator)
         {
             Console.WriteLine("Subtraction");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Subtract(EnterNumberForCalculation(), EnterNumberForCalculation())}");
             UnsetColor();
         }
 
-        public void ShowingMenuForDivision(ICalculator calculator)
+        private void ShowingMenuForDivision(ICalculator calculator)
         {
             Console.WriteLine("Division");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Divide(EnterNumberForCalculation(), EnterNumberForCalculation())}");
             UnsetColor();
         }
 
-        public void ShowingMenuForMultiplying(ICalculator calculator)
+        private void ShowingMenuForMultiplying(ICalculator calculator)
         {
             Console.WriteLine("Multiplying");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Multiply(EnterNumberForCalculation(), EnterNumberForCalculation())}");
             UnsetColor();
         }
 
-        public void ShowingMenuForExponentiation(ICalculator calculator)
+        private void ShowingMenuForExponentiation(ICalculator calculator)
         {
             Console.WriteLine("Exponentiation");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Exponentiation(EnterNumberForCalculation(), EnterNumberForCalculation())}");
             UnsetColor();
         }
-        public void ShowingMenuForFactorial(ICalculator calculator)
+        private void ShowingMenuForFactorial(ICalculator calculator)
         {
             bool isFactorial = true;
             Console.WriteLine("Factorial");
-            SetColor();
+            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Factorial((long)EnterNumberForCalculation(isFactorial))}");
             UnsetColor();
         }
@@ -136,7 +136,7 @@ namespace Calculator
                     }
                     else
                     {
-                        Console.WriteLine("You didnt enter a number, try again");
+                        NoNumberEnteredAnnouncement();
                     }
 
                 }
@@ -156,12 +156,11 @@ namespace Calculator
                     }
                     else
                     {
-                        Console.WriteLine("You didnt enter a number, try again");
+                        NoNumberEnteredAnnouncement();
                     }
                 }
                 return 0;
             }
-
         }
 
         private int EnterChoiceNumber(ICalculator calculator)
@@ -172,21 +171,39 @@ namespace Calculator
             {
                 if (parsedValue <= 0 || parsedValue > calculator.ListOfMethods.Count + 1)
                 {
-                    Console.WriteLine("Entered wrong number");
+                    WrongNumberEnteredAnnouncement();
                     return 0;
                 }
                 return parsedValue;
             }
             else
             {
-                Console.WriteLine("You didn't enter a number");
+                NoNumberEnteredAnnouncement();
                 return 0;
             }
         }
 
-        private void SetColor()
+        private void NoNumberEnteredAnnouncement() 
+        {
+            SetColorRed();
+            Console.WriteLine("You didn't enter a number, try again");
+            UnsetColor();
+        }
+
+        private void WrongNumberEnteredAnnouncement()
+        {
+            SetColorRed();
+            Console.WriteLine("Entered wrong number");
+            UnsetColor();
+        }
+
+        private void SetColorGreen()
         {
             Console.ForegroundColor = ConsoleColor.Green;
+        }
+        private void SetColorRed()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
         }
 
         private void UnsetColor()
