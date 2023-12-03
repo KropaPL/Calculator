@@ -82,8 +82,10 @@ namespace Calculator
         private void ShowingMenuForDivision(ICalculator calculator)
         {
             Console.WriteLine("Division");
-            double result = calculator.Divide(EnterNumberForCalculation(), EnterNumberForCalculation());
-            if (!(result == 0))
+            double x = EnterNumberForCalculation();
+            double y = EnterNumberForCalculation();
+            double result = calculator.Divide(x, y);
+            if (!(y == 0))
             {
                 Console.WriteLine($"Result: {result}");
             }

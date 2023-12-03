@@ -19,6 +19,7 @@ namespace Calculator
                     {
                         break;
                     }
+                    Console.WriteLine();
                 }
             } catch (Exception ex)
             {
