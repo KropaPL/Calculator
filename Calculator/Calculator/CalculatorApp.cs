@@ -12,7 +12,7 @@ namespace Calculator
         {
             try
             {
-                for (; ; )
+                for (;;)
                 {
                     calculatorsMenu.ChoosingOperation(calculator);
                     if (calculator.exit == CalculatorsMenu.exitNumber)

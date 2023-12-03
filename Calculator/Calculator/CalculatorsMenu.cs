@@ -118,38 +118,77 @@ namespace Calculator
         private double EnterNumberForCalculation(bool isFactorial = false)
         {
             if (!isFactorial) {
-                Console.WriteLine($"Enter a {enterNumberCounter}. number: ");
-                enterNumberCounter++;
+
                 if (enterNumberCounter == 3)
                 {
                     enterNumberCounter = 1;
                 }
-                return Convert.ToDouble(Console.ReadLine());
+                bool isNumber = false;
+                while (!isNumber)
+                {
+                    Console.WriteLine($"Enter a {enterNumberCounter}. number: ");
+                    string x = Console.ReadLine();
+                    if (double.TryParse(x, out double number))
+                    {
+                        isNumber = true;
+                        enterNumberCounter++;
+                        return number;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You didnt enter a number, try again");
+                    }
+
+                }
+                return 0;
             } 
             else
             {
-                Console.WriteLine($"Enter a number: ");
-                long number = (long)Convert.ToInt32(Console.ReadLine());
-                return number;
+                bool isNumber = false;
+                while (!isNumber)
+                {
+                    Console.WriteLine($"Enter a number: ");
+                    string x = Console.ReadLine();
+                    if (long.TryParse(x, out long number))
+                    {
+                        isNumber = true;
+                        return number;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You didnt enter a number, try again");
+                    }
+                }
+                return 0;
             }
 
         }
+
         private int EnterChoiceNumber(ICalculator calculator)
         {
             Console.Write("Enter number for operation: ");
-            int x = Convert.ToInt32(Console.ReadLine());
-            if (x <= 0 || x > calculator.ListOfMethods.Count + 1)
+            string x = Console.ReadLine();
+            if (int.TryParse(x, out int parsedValue))
             {
-                Console.WriteLine("Entered wrong number");
+                if (parsedValue <= 0 || parsedValue > calculator.ListOfMethods.Count + 1)
+                {
+                    Console.WriteLine("Entered wrong number");
+                    return 0;
+                }
+                return parsedValue;
+            }
+            else
+            {
+                Console.WriteLine("You didn't enter a number");
                 return 0;
             }
-            return x;
         }
 
         private void SetColor()
         {
             Console.ForegroundColor = ConsoleColor.Green;
         }
+
         private void UnsetColor()
         {
             Console.ForegroundColor= ConsoleColor.White;
