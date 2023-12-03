@@ -46,7 +46,9 @@ namespace Calculator
         {
             if ( b == 0 ) 
             {
+                SetColorRed();
                 Console.WriteLine("Division by zero is not allowed.");
+                UnsetColor();
                 return 0;
             }
             return a/b;
@@ -62,7 +64,9 @@ namespace Calculator
         {
             if (a < 0)
             {
+                SetColorRed();
                 Console.WriteLine("Entered a negative number");
+                UnsetColor();
                 return 0;
             }
 
@@ -74,6 +78,16 @@ namespace Calculator
             }
 
             return result;
+        }
+
+        public void SetColorRed()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        public void UnsetColor()
+        {
+            Console.ForegroundColor = ConsoleColor.White; 
         }
     }
 }

@@ -8,10 +8,14 @@ namespace Calculator
 {
     internal class StringCalculator : BaseCalculator
     {
-        String equastion;
+        String equation;
         List<String> listOfOperation;
         List<double> listOfNumbers;
 
+        public void GenerateArray()
+        {
+           
+        }
 
     }
 }

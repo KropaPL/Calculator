@@ -70,49 +70,45 @@ namespace Calculator
         private void ShowingMenuForAdd(ICalculator calculator)
         {
             Console.WriteLine("Addition");
-            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Add(EnterNumberForCalculation(),EnterNumberForCalculation())}");
-            UnsetColor();
         }
 
         private void ShowingMenuForSubtract(ICalculator calculator)
         {
             Console.WriteLine("Subtraction");
-            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Subtract(EnterNumberForCalculation(), EnterNumberForCalculation())}");
-            UnsetColor();
         }
 
         private void ShowingMenuForDivision(ICalculator calculator)
         {
             Console.WriteLine("Division");
-            SetColorGreen();
-            Console.WriteLine($"Result: {calculator.Divide(EnterNumberForCalculation(), EnterNumberForCalculation())}");
-            UnsetColor();
+            double result = calculator.Divide(EnterNumberForCalculation(), EnterNumberForCalculation());
+            if (!(result == 0))
+            {
+                Console.WriteLine($"Result: {result}");
+            }
         }
 
         private void ShowingMenuForMultiplying(ICalculator calculator)
         {
             Console.WriteLine("Multiplying");
-            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Multiply(EnterNumberForCalculation(), EnterNumberForCalculation())}");
-            UnsetColor();
         }
 
         private void ShowingMenuForExponentiation(ICalculator calculator)
         {
             Console.WriteLine("Exponentiation");
-            SetColorGreen();
             Console.WriteLine($"Result: {calculator.Exponentiation(EnterNumberForCalculation(), EnterNumberForCalculation())}");
-            UnsetColor();
         }
         private void ShowingMenuForFactorial(ICalculator calculator)
         {
             bool isFactorial = true;
             Console.WriteLine("Factorial");
-            SetColorGreen();
-            Console.WriteLine($"Result: {calculator.Factorial((long)EnterNumberForCalculation(isFactorial))}");
-            UnsetColor();
+            long result = calculator.Factorial((long)EnterNumberForCalculation(isFactorial));
+            if (!(result == 0))
+            {
+                Console.WriteLine($"Result: {result}");
+            }
         }
 
         private double EnterNumberForCalculation(bool isFactorial = false)
@@ -126,7 +122,9 @@ namespace Calculator
                 bool isNumber = false;
                 while (!isNumber)
                 {
+                    SetColorGreen();
                     Console.WriteLine($"Enter a {enterNumberCounter}. number: ");
+                    UnsetColor();
                     string x = Console.ReadLine();
                     if (double.TryParse(x, out double number))
                     {
@@ -147,7 +145,9 @@ namespace Calculator
                 bool isNumber = false;
                 while (!isNumber)
                 {
+                    SetColorGreen();
                     Console.WriteLine($"Enter a number: ");
+                    UnsetColor();
                     string x = Console.ReadLine();
                     if (long.TryParse(x, out long number))
                     {
